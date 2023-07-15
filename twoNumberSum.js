@@ -1,6 +1,7 @@
 // solution 1
 
 // time and space complexity high
+//checkin
 
 function twoNumberSum(array, targetSum) {
   if (array.length <= 0) {
