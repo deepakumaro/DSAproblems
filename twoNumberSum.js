@@ -1,7 +1,6 @@
 // solution 1
 
 // time and space complexity high
-//checkin
 
 function twoNumberSum(array, targetSum) {
   if (array.length <= 0) {
@@ -15,10 +14,6 @@ function twoNumberSum(array, targetSum) {
     }
   }
   return [];
-
-  //testing
-  //testing
-  //testing
 }
 
 console.log(twoNumberSum([3, 5, -4, 8, 11, 1, -1, 6], 10));
