@@ -10,7 +10,6 @@ function runLengthEncoding(string) {
     }
     count++;
   }
-  enocodeArray.push(count);
   enocodeArray.push(string[string.length - 1]);
   return enocodeArray.join("");
 }
