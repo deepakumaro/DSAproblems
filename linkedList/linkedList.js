@@ -6,10 +6,15 @@ class Node {
 }
 
 class LinkedList {
+  #size;
   constructor() {
     this.head = null;
     this.tail = null;
-    this.size = null;
+    this.#size = null;
+  }
+
+  get size() {
+    return this.#size;
   }
 
   push(value) {
@@ -22,7 +27,30 @@ class LinkedList {
       this.tail.next = node;
       this.tail = node;
     }
-    this.size++;
+    this.#size++;
+  }
+
+  pop() {
+    if (this.head == null) return;
+    if (this.size == 1) {
+      this.head = null;
+      this.tail = null;
+      this.#size = 0;
+      return;
+    }
+    let currentNode = this.head;
+    let newTail = null;
+    while (currentNode) {
+      if (currentNode.next) {
+        newTail = currentNode;
+      }
+      currentNode = currentNode.next;
+    }
+    const deletedNode = this.tail;
+    this.tail = newTail;
+    this.tail.next = null;
+    this.#size = this.#size - 1;
+    return deletedNode;
   }
 
   printList() {
@@ -42,3 +70,9 @@ list.push(6);
 list.push(12);
 list.push(18);
 list.printList();
+console.log("size of list", list.size);
+list.pop();
+list.pop();
+list.pop();
+list.printList();
+console.log("size of list", list.size);
