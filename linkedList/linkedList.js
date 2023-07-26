@@ -53,6 +53,20 @@ class LinkedList {
     return deletedNode;
   }
 
+  // remove duplicate from a linked list
+  // it will work when list is sorted
+  removeDuplicate() {
+    let currentNode = this.head;
+    while (currentNode) {
+      let nextDistinctNode = currentNode.next;
+      while (nextDistinctNode && nextDistinctNode.value == currentNode.value) {
+        nextDistinctNode = nextDistinctNode.next;
+      }
+      currentNode.next = nextDistinctNode;
+      currentNode = nextDistinctNode;
+    }
+  }
+
   printList() {
     if (this.head == null) {
       console.log("list is empty");
@@ -67,12 +81,19 @@ class LinkedList {
 
 const list = new LinkedList();
 list.push(6);
-list.push(12);
-list.push(18);
+list.push(6);
+list.push(8);
+list.push(9);
+list.push(10);
+list.push(10);
+list.printList();
+
+console.log("after duplicate remove");
+list.removeDuplicate();
 list.printList();
 console.log("size of list", list.size);
-list.pop();
-list.pop();
-list.pop();
+// list.pop();
+// list.pop();
+// list.pop();
 list.printList();
 console.log("size of list", list.size);
